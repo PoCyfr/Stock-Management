@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-PT">
+
+<head>
+	<link rel="stylesheet" type = "text/css" href="prodstyle.css">
+	<script type="text/javascript" src ="prodscript.js"></script>
+</head>
+
+<body><div class="sidenav">
+	<a id="Stock" href="/stock" class="sections">Stock</a>
+	<a id="Debt" href="/debt" class="sections">Debt</a>
+</div>
+
+<div class="main">
+
+	<div class="wrapper">
+		<div id="Debt">Member's debt</div>
+		<div id="tableTop">
+			<button id="AddButton" class="button" onclick="addPerson()">Add Person</button>
+			
+		</div>
+	
+
+		<table id="table">
+			<tr >
+				<th class="tableHeader"></th>
+				<th class="tableHeader">Name</th>
+				<!--<th class="tableHeader">Debt</th>-->
+				<th class="tableHeader">Balance</th>
+			</tr>
+
+			% for row in rows :
+			<tr class="collapsible">
+				<td class="plus"> + </td>
+				<td id="name{{row[0]}}">{{row[0]}}</td>
+				<!--<td id="debt{{row[0]}}">{{row[1]}}</td>-->
+				<td id="Balance{{row[0]}}">{{row[2]}}</td>
+			</tr>
+			<tr class="content" rowspan="5" colspan="5">
+				<td class="content-container">
+					<div class="operations" id="{{row[0]}}">
+						<button class="editPerson" >edit</button>
+						<button class="deletePerson">remove</button>
+					</div>
+				</td>
+			</tr>
+			% end
+
+		</table>
+		</div>
+
+	</div>
+</div>
+
+	<div id="createBox">
+		<div class="title">Create</div>
+		<form class="form" action="/newPerson" method="GET">
+			Name:<br>
+			<input type="text" name="name"><br>
+			<!--Debt:<br>
+			<input type="number" name="debt"><br>-->
+			Balance:<br>
+			<input type="number" name="balance"><br>
+			<input type="submit" class="create" name="create" value="create">
+		</form>
+	</div>
+
+	<div id="editBox">
+		<div class="title">Edit</div>
+		<form name="editForm" class="form" action="edit with js" method="GET">	
+			<!--Debt:<br>
+			<input type="number" name="debt" id="editDebt"><br><-->
+			Balance:<br>
+			<input type="number" name="balance" id="editBalance"><br>
+			<input type="submit" class="create" name="create" value="save">
+		</form>
+	</div>
+</div>
+</div>
+
+
+</body>
+
+</html>

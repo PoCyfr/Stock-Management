@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-PT">
+
+<head>
+	<link rel="stylesheet" type = "text/css" href="prodstyle.css">
+	<script type="text/javascript" src ="prodscript.js"></script>
+</head>
+
+<body><div class="sidenav">
+	<a id="Stock" href="/stock" class="sections">Stock</a>
+	<a id="Debt" href="/debt" class="sections">Debt</a>
+</div>
+
+<div class="main">
+
+	<div class = "wrapper" id="tableWrapper">
+		<div id="Items">Items</div>
+		<div id="tableTop">
+			<div id="buttons">
+				<button id="AddButton" class="button" onclick="addItem()">Add Item</button>
+				<form action="/upload" id="upFile" method="POST">
+					<input type="file" name="file" title="csv format: BARCODE,NAME,DESCRIPTION,PRICE,MINQUANTITY,AVAILABILITY">
+					<input type="submit" value="Upload csv" onclick>
+				</form>
+			</div>
+			<div id="tableTopLine">
+				<form id="sort" class="form" action="/order" method="GET">
+					<span id="sortText">Sort By</span>
+					<select name="order" onchange="this.form.submit()">
+						<option selected="selected"></option>
+						<option value="1">Price - Low to High</option>
+	  					<option value="2">Price - High to Low</option>
+	  					<option value="3">Availability - Low to High</option>
+	  					<option value="4">Availability - High to Low</option>
+	  					<option value="5">Items with Low Availability</option>
+					</select>
+				</form>
+				<form id="search" class="form" action="/search" method="GET">
+					<span id="sortText">Search</span>
+					<select name="searchChoice" >
+						<option value="NAME">Name</option>
+						<option value="BARCODE">Barcode</option>
+						<option value="PRICE">Price</option>
+					</select>
+
+					<input type="text" name="searchText" >
+					<input id="lupa" type="image" src="search.svg">
+				</form>
+			</div>	
+			
+		</div>
+		
+		<table id="table">
+			<tr >
+				<th class="tableHeader"></th>
+				<th class="tableHeader">Name</th>
+				<th class="tableHeader">Barcode</th>
+				<th class="tableHeader">Price</th>
+				<th class="tableHeader">Availability</th>
+				<th class="tableHeader">MinQuantity</th>
+			</tr>
+
+			% for row in rows :
+			<tr class="collapsible">
+				<td class="plus"> + </td>
+				<td id="name{{row[0]}}">{{row[1]}}</td>
+				<td >{{row[0]}}</td>
+				<td id="price{{row[0]}}">{{row[3]}}</td>
+				<td id="av{{row[0]}}">{{row[5]}}</td>
+				<td id="minQ{{row[0]}}">{{row[4]}}</td>
+			</tr>
+			<tr class="content" rowspan="5" colspan="5">
+				<td class="content-container">
+					<div id="desc{{row[0]}}" class="description">{{row[2]}}</div>
+					<div class="operations" id="{{row[0]}}">
+						<button class="edit" >edit</button>
+						<button class="delete">remove</button>
+					</div>
+				<td>
+			</tr>
+			% end
+
+
+		</table>
+	</div>
+
+	<div class="wrapper">
+		<div id="Items">Buy</div>
+		<form action="/buy" id="buy" method="GET">
+			<input type="file" name="buyFile">
+			<input type="submit" value="Upload Purchases" onclick>
+		</form>
+		<div style="font-size: 12px">Nome<br>Item barcode, quantidade</div>
+	</div>
+
+	<div id="createBox">
+		<div class="title">Create</div>
+		<form class="form" action="/new" method="GET">
+			Nome:<br>
+			<input type="text" name="name"><br>
+			Barcode Number:<br>
+			<input type="number" name="barcode"><br>
+			Price:<br>
+			<input type="text" name="price"><br>
+			Availability(0 = out of stock):<br>
+			<input type="text" name="availability"><br>
+			Minimum Quantity:<br>
+			<input type="text" name="minQuantity"><br>
+			Description<br>
+			<input type="text" name="description"><br>
+			<input type="submit" class="create" name="create" value="create">
+		</form>
+	</div>
+
+	<div id="editBox">
+		<div class="title">Edit</div>
+		<form name="editForm" class="form" action="edit with js" method="GET">
+			Nome:<br>
+			<input type="text" name="name" id="editName"><br>
+			Price:<br>
+			<input type="text" name="price" id="editPrice"><br>
+			Availability(0 = out of stock):<br>
+			<input type="text" name="availability" id="editAv"><br>
+			Minimum Quantity:<br>
+			<input type="text" name="minQuantity" id="editMinQ"><br>
+			Description<br>
+			<input type="text" name="description" id="editDesc"><br>
+			<input type="submit" class="create" name="create" value="save">
+		</form>
+	</div>
+</div>
+
+
+</body>
+
+</html>

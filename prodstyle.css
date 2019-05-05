@@ -1,0 +1,241 @@
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #fcfcfc;
+
+}
+
+
+
+.sidenav {
+  height: 100%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sections{
+  position: relative;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 23px;
+  color: #818181;
+  display: block;
+  top:30px;
+}
+
+.sections:hover {
+  color: #f1f1f1;
+  background-color:#c40000;
+}
+
+.main {
+  margin-left: 140px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+
+}
+
+.wrapper{
+  position: relative;
+  background-color: white;
+  border: 1px solid #e5e9f2;
+  border-radius: 0.25rem;
+  background-clip: border-box;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-top: 25px;
+  padding: 20px 20px 20px 20px;
+}
+
+
+
+#table{
+  position: relative;
+  left: 5%;
+  width: 85%;
+
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 10;
+table-layout:fixed;
+}
+
+#table th:first-child{
+width: 5%;
+}
+
+th, td{
+  height: 10px;
+  padding: 5px;
+  font-weight: 10;
+
+}
+
+tr{
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+
+}
+
+.tableHeader{
+    font-weight: 600;
+    cursor: auto;
+    border-top: 1px solid #e5e9f2;
+}
+
+#Items{
+  position: relative;
+  margin: 20px 20px 20px 25px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.collapsible {
+  color: black;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+
+}
+
+.active, .collapsible:hover {
+  background-color: #999;
+}
+
+.content {
+  position: relative;
+ width: 2400%;
+ font-size: 15px;
+ display: none;
+ height: 70px;
+}
+
+.content-container{
+  width: 100%;
+}
+
+.description{
+  position: relative;
+   height: 60px; 
+   width:  40%; 
+   overflow: hidden;
+   white-space: nowrap;
+   float:left;
+   border: 1px solid #e5e9f2;
+}
+
+.edit{
+  position: relative;
+ 
+}
+
+#createBox, #editBox{
+  position: absolute;
+  width:300px;
+  height: 400px;
+  background-color: white;
+  left: 40%;
+  top: 10%;
+  border: 2px solid #e5e9f2;
+  display: none;
+}
+
+.title{
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  font-size: 30px;
+}
+
+.delete{
+  position: relative;
+  
+}
+
+.operations{
+  position: relative;
+  width:40%;
+  height: 60px;
+  float:right;
+  right: 15%;
+}
+
+.form{
+  font-size: 16px;
+  padding-left: 15px;
+}
+#editTitle{
+  padding-bottom: 20px;
+}
+.create{
+  margin-top: 20px;
+}
+
+#tableTop{
+  position: relative;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+input[type="file" i] {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#tableTopLine{
+  position: relative;
+  margin-top: 20px;
+  height: 40px;
+  left: 5%;
+  width: 85%;
+}
+
+#search{
+  position: relative;
+  float: right;
+  white-space: nowrap;
+  margin-right: 50%;
+  vertical-align: middle;
+  top:5px;
+  width: 10px;
+  display:inline-block;
+}
+#sort{
+ position: relative;
+ float: left;
+  white-space: nowrap;
+  top:10px;
+  display:inline-block;
+  width: 10px;
+}
+#lupa{
+  position: relative;
+  width: 20px;
+  top:5px;
+}
+
+#buttons{
+  position: relative;
+  left: 5%;
+  width: 85%;
+  height: 80px;
+}
